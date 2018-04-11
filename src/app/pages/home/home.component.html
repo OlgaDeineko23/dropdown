@@ -1,0 +1,15 @@
+<p>
+  <strong>The most popular movie</strong>: {{ popularMovie?.title || "None selected" }}
+  &mdash;
+  <button class="btn btn-clear-selection" (click)="clearSelection()">Clear selection</button>
+</p>
+<app-dropdown
+  [items]="movies"
+  [(value)]="popularMovie"
+  placeholder="Select Movie">
+  <ng-template let-movie="item">
+    <span class="name">
+					{{ movie.title }}
+				</span>
+  </ng-template>
+</app-dropdown>
