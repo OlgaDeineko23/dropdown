@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
+import { IMovie } from '../interfaces/i-movie';
 
 @Injectable()
 export class MovieService {
-  private _movies: any;
+  private _movies: BehaviorSubject<IMovie[]>;
   apiUrl = 'https://api.themoviedb.org/3/movie';
   api_key = 'bca591baad893fc398799bd5a5fb90af';
   constructor(private $http: Http) {
-    this._movies = new BehaviorSubject(null);
+    this._movies = new BehaviorSubject([]);
   }
-  get allMovies(): BehaviorSubject<any> {
+  get allMovies(): BehaviorSubject<IMovie[]> {
     return this._movies;
   }
 

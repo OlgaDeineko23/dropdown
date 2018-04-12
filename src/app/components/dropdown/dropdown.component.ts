@@ -1,23 +1,20 @@
 import {Component, ContentChild, EventEmitter, Input, Output, TemplateRef} from '@angular/core';
+import { IMovie } from '../../interfaces/i-movie';
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss'],
-  queries: {
-    itemTemplate: new ContentChild(TemplateRef)
-  },
+  styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent {
   @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
   @Output() public valueChange: EventEmitter<any>;
   @Input() public placeholder: string;
-  @Input() public items: any[];
-  @Input() public value: any[];
+  @Input() public items: IMovie[];
+  @Input() public value: IMovie;
   public isShowingItems: boolean;
 
   constructor() {
-
     this.isShowingItems = false;
     this.valueChange = new EventEmitter();
 

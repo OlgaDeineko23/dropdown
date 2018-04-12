@@ -1,7 +1,6 @@
 <p>
   <strong>The most popular movie</strong>: {{ popularMovie?.title || "None selected" }}
-  &mdash;
-  <button class="btn btn-clear-selection" (click)="clearSelection()">Clear selection</button>
+  <button *ngIf="popularMovie" class="btn btn-clear-selection" (click)="clearSelection()">Clear selection</button>
 </p>
 <app-dropdown
   [items]="movies"
